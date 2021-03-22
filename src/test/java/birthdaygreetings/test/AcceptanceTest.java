@@ -1,57 +1,47 @@
 package birthdaygreetings.test;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.mail.Message;
-
 import birthdaygreetings.*;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import java.text.ParseException;
+import java.util.List;
+
+import static birthdaygreetings.test.DateHelper.date;
+import static birthdaygreetings.test.EmployeesFactory.employee;
+import static birthdaygreetings.test.EmployeesFactory.employeesList;
+import static java.util.Collections.emptyList;
+import static org.mockito.Mockito.*;
 
 public class AcceptanceTest {
 
-    private static final int SMTP_PORT = 25;
-    private List<Message> messagesSent;
     private BirthdayService service;
+    private GreetingSender greetingSender;
 
     @Before
-    public void setUp() {
-        messagesSent = new ArrayList<>();
-        service = new BirthdayService(new FileEmployeesRepository("src/test/resources/employee_data.txt"),
-                new EmailGreetingSender("localhost",SMTP_PORT) {
-                    @Override
-                    public void sendMessage(Message msg) {
-                        messagesSent.add(msg);
-                    }
+    public void setUp() throws ParseException {
+        EmployeesRepository employeesRepository = mock(EmployeesRepository.class);
+        greetingSender = mock(GreetingSender.class);
+        when(employeesRepository.getEmployees()).thenReturn(employeesList(employee("John", "Doe", "1982/10/08", "john.doe@foobar.com"),
+                employee("Mary", "Ann", "1975/03/11", "mary.ann@foobar.com")));
 
-                });
+        service = new BirthdayService(employeesRepository, greetingSender);
     }
 
     @Test
-    public void baseScenario() throws Exception {
+    public void baseScenario() throws ParseException {
+        service.sendGreetings(date("2008/10/08"));
 
-        service.sendGreetings(
-                DateHelper.date("2008/10/08")
-        );
+        List<Employee> employeesWhoseBirthdayIsToday = employeesList(
+                employee("John", "Doe", "1982/10/08", "john.doe@foobar.com"));
 
-        assertEquals("message not sent?", 1, messagesSent.size());
-        Message message = messagesSent.get(0);
-        assertEquals("Happy Birthday, dear John!", message.getContent());
-        assertEquals("Happy Birthday!", message.getSubject());
-        assertEquals(1, message.getAllRecipients().length);
-        assertEquals("john.doe@foobar.com",
-                message.getAllRecipients()[0].toString());
+        verify(greetingSender).send(Greeting.composeGreetings(employeesWhoseBirthdayIsToday));
     }
 
     @Test
-    public void willNotSendEmailsWhenNobodysBirthday() throws Exception {
-        service.sendGreetings(
-                DateHelper.date("2008/01/01"));
+    public void willNotSendEmailsWhenNobodysBirthday() throws ParseException {
+        service.sendGreetings(date("2008/12/18"));
 
-        assertEquals("what? messages?", 0, messagesSent.size());
+        verify(greetingSender).send(emptyList());
     }
 }

@@ -9,10 +9,7 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 public class FileEmployeesRepositoryTest {
-
-
     private EmployeesRepository employeeRepository;
-
 
     @Test
     public void obtains_employees_list() throws Exception {
