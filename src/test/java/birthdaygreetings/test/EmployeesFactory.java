@@ -1,6 +1,6 @@
 package birthdaygreetings.test;
 
-import birthdaygreetings.Employee;
+import birthdaygreetings.domain.Employee;
 
 import java.text.ParseException;
 import java.util.Arrays;

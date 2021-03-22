@@ -1,6 +1,10 @@
 package birthdaygreetings.test;
 
-import birthdaygreetings.*;
+import birthdaygreetings.application.BirthdayService;
+import birthdaygreetings.domain.Employee;
+import birthdaygreetings.domain.EmployeesRepository;
+import birthdaygreetings.domain.Greeting;
+import birthdaygreetings.domain.GreetingSender;
 import org.junit.Before;
 import org.junit.Test;
 

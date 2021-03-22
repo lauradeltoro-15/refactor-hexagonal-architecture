@@ -1,4 +1,4 @@
-package birthdaygreetings;
+package birthdaygreetings.domain;
 
 public class NotValidEmployeeException extends RuntimeException {
     public NotValidEmployeeException(String message) {

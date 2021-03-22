@@ -1,6 +1,6 @@
 package birthdaygreetings.test;
 
-import birthdaygreetings.Employee;
+import birthdaygreetings.domain.Employee;
 import org.junit.Test;
 
 import static birthdaygreetings.test.DateHelper.date;

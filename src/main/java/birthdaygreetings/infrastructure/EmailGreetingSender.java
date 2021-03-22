@@ -1,4 +1,9 @@
-package birthdaygreetings;
+package birthdaygreetings.infrastructure;
+
+import birthdaygreetings.domain.CannotSendGreetingException;
+import birthdaygreetings.domain.Employee;
+import birthdaygreetings.domain.Greeting;
+import birthdaygreetings.domain.GreetingSender;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;

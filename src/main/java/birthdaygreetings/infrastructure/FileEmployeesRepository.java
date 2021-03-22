@@ -1,4 +1,6 @@
-package birthdaygreetings;
+package birthdaygreetings.infrastructure;
+
+import birthdaygreetings.domain.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

@@ -1,4 +1,9 @@
-package birthdaygreetings;
+package birthdaygreetings.infrastructure.CLI;
+
+import birthdaygreetings.application.BirthdayService;
+import birthdaygreetings.domain.OurDate;
+import birthdaygreetings.infrastructure.EmailGreetingSender;
+import birthdaygreetings.infrastructure.FileEmployeesRepository;
 
 import java.text.SimpleDateFormat;
 

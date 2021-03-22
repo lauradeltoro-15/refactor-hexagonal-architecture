@@ -3,7 +3,7 @@ package birthdaygreetings.test;
 import static birthdaygreetings.test.DateHelper.date;
 import static org.junit.Assert.*;
 
-import birthdaygreetings.OurDate;
+import birthdaygreetings.domain.OurDate;
 
 import org.junit.Test;
 

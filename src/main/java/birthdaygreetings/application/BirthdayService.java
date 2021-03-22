@@ -1,4 +1,6 @@
-package birthdaygreetings;
+package birthdaygreetings.application;
+
+import birthdaygreetings.domain.*;
 
 import java.util.List;
 import java.util.stream.Collectors;

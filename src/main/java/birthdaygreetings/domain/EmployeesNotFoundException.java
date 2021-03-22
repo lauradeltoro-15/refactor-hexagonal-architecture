@@ -1,4 +1,4 @@
-package birthdaygreetings;
+package birthdaygreetings.domain;
 
 public class EmployeesNotFoundException extends RuntimeException {
     public EmployeesNotFoundException(String message) {

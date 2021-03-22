@@ -1,6 +1,9 @@
 package birthdaygreetings.test;
 
-import birthdaygreetings.*;
+import birthdaygreetings.domain.EmployeesNotFoundException;
+import birthdaygreetings.domain.EmployeesRepository;
+import birthdaygreetings.domain.NotValidEmployeeException;
+import birthdaygreetings.infrastructure.FileEmployeesRepository;
 import org.junit.Test;
 
 import static birthdaygreetings.test.EmployeesFactory.employee;

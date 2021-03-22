@@ -1,6 +1,5 @@
-package birthdaygreetings;
+package birthdaygreetings.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -28,11 +27,11 @@ public class Greeting {
         return employee;
     }
 
-    String getTitle() {
+    public String getTitle() {
         return content.getTitle();
     }
 
-    String getText() {
+    public String getText() {
         return content.getText();
     }
 

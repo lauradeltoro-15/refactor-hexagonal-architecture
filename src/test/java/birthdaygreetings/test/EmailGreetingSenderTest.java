@@ -1,6 +1,9 @@
 package birthdaygreetings.test;
 
-import birthdaygreetings.*;
+import birthdaygreetings.domain.CannotSendGreetingException;
+import birthdaygreetings.domain.Employee;
+import birthdaygreetings.domain.Greeting;
+import birthdaygreetings.infrastructure.EmailGreetingSender;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package birthdaygreetings;
+package birthdaygreetings.domain;
 
 import java.util.List;
 
